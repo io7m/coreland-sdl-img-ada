@@ -8,4 +8,5 @@ package SDL.image is
   function Load (file: cs.chars_ptr) return SDL.video.surface_ptr;
   pragma import (c, Load, "IMG_Load");
 
+  function Load (file: string) return SDL.video.surface_ptr;
 end SDL.image;
