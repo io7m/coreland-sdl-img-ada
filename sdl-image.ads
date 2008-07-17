@@ -6,10 +6,10 @@ with interfaces.c.strings;
 package SDL.image is
   package cs renames interfaces.c.strings;
 
-  function Load (file: cs.chars_ptr) return SDL.video.surface_ptr;
+  function Load (file: cs.chars_ptr) return SDL.video.surface_ptr_t;
   pragma import (c, Load, "IMG_Load");
 
-  function Load (file: string) return SDL.video.surface_ptr;
+  function Load (file: string) return SDL.video.surface_ptr_t;
 
   function GetError return cs.chars_ptr renames SDL.error.GetError;
   function GetError return string renames SDL.error.GetError;
