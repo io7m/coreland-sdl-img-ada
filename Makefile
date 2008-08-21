@@ -7,8 +7,7 @@ ctxt/bindir.o ctxt/ctxt.a ctxt/dlibdir.o ctxt/incdir.o ctxt/repos.o \
 ctxt/slibdir.o ctxt/version.o deinstaller deinstaller.o inst-check inst-check.o \
 inst-copy inst-copy.o inst-dir inst-dir.o inst-link inst-link.o install_core.o \
 install_error.o installer installer.o instchk instchk.o insthier.o \
-sdl-ada-conf.o sdl-image.ali sdl-image.o sdl-img-ada-conf sdl-img-ada-conf.o \
-sdl-img-ada.a
+sdl-image.ali sdl-image.o sdl-img-ada-conf sdl-img-ada-conf.o sdl-img-ada.a
 
 # Mkf-deinstall
 deinstall: deinstaller inst-check inst-copy inst-dir inst-link
@@ -57,7 +56,8 @@ ada-bind:\
 conf-adabind conf-systype conf-adatype conf-adafflist flags-sdl-ada
 
 ada-compile:\
-conf-adacomp conf-adatype conf-systype conf-adafflist flags-sdl-ada
+conf-adacomp conf-adatype conf-systype conf-adacflags conf-adafflist \
+	flags-sdl-ada
 
 ada-link:\
 conf-adalink conf-adatype conf-systype conf-aldfflist libs-sdl-ada
@@ -69,10 +69,10 @@ ada-srcmap-all:\
 ada-srcmap conf-adacomp conf-adatype conf-systype
 
 cc-compile:\
-conf-cc conf-cctype conf-systype
+conf-cc conf-cctype conf-systype conf-cflags
 
 cc-link:\
-conf-ld conf-ldtype conf-systype
+conf-ld conf-ldtype conf-systype conf-ldflags
 
 cc-slib:\
 conf-systype
@@ -253,10 +253,6 @@ conf-systype
 mk-systype:\
 conf-cc
 
-sdl-ada-conf.o:\
-cc-compile sdl-ada-conf.c ctxt.h
-	./cc-compile sdl-ada-conf.c
-
 sdl-image.ali:\
 ada-compile sdl-image.adb
 	./ada-compile sdl-image.adb
@@ -284,7 +280,7 @@ obj_clean:
 	ctxt/slibdir.o ctxt/version.c ctxt/version.o deinstaller deinstaller.o \
 	inst-check inst-check.o inst-copy inst-copy.o inst-dir inst-dir.o inst-link \
 	inst-link.o install_core.o install_error.o installer installer.o instchk \
-	instchk.o insthier.o sdl-ada-conf.o sdl-image.ali sdl-image.o sdl-img-ada-conf \
+	instchk.o insthier.o sdl-image.ali sdl-image.o sdl-img-ada-conf \
 	sdl-img-ada-conf.o sdl-img-ada.a
 ext_clean:
 	rm -f conf-adatype conf-cctype conf-ldtype conf-sosuffix conf-systype mk-ctxt
