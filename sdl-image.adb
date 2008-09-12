@@ -1,15 +1,15 @@
 package body SDL.image is
 
-  function Load (file: string) return SDL.video.surface_ptr_t is
+  function Load (file: string) return SDL.video.surface_access_t is
     ch_array : aliased c.char_array := c.to_c (file);
   begin
     return Load (cs.to_chars_ptr (ch_array'unchecked_access));
   end Load;
 
   function LoadTyped_RW
-   (src     : SDL.rwops.rwops_ptr_t;
+   (src     : SDL.rwops.rwops_access_t;
     free    : boolean;
-    typestr : string) return SDL.video.surface_ptr_t
+    typestr : string) return SDL.video.surface_access_t
   is
     ch_array : aliased c.char_array := c.to_c (typestr);
   begin
@@ -21,8 +21,8 @@ package body SDL.image is
   end LoadTyped_RW;
 
   function Load_RW
-   (src  : SDL.rwops.rwops_ptr_t;
-    free : boolean) return SDL.video.surface_ptr_t is
+   (src  : SDL.rwops.rwops_access_t;
+    free : boolean) return SDL.video.surface_access_t is
   begin
     if free then
       return Load_RW (src, 1);
