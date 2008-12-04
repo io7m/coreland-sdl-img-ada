@@ -12,6 +12,8 @@ struct install_item insthier[] = {
   {INST_COPY, "sdl-image.ads", 0, ctxt_incdir, 0, 0, 0644},
   {INST_COPY, "sdl-image.adb", 0, ctxt_repos, 0, 0, 0644},
   {INST_COPY, "sdl-image.adb", 0, ctxt_incdir, 0, 0, 0644},
+  {INST_COPY, "sdl-image.ali", 0, ctxt_repos, 0, 0, 0644},
+  {INST_COPY, "sdl-image.ali", 0, ctxt_incdir, 0, 0, 0444},
   {INST_COPY, "sdl-img-ada.sld", 0, ctxt_repos, 0, 0, 0644},
   {INST_COPY, "sdl-img-ada.a", "libsdl-img-ada.a", ctxt_slibdir, 0, 0, 0644},
   {INST_COPY, "sdl-img-ada-conf.ld", 0, ctxt_repos, 0, 0, 0644},
