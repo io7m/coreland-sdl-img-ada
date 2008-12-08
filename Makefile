@@ -32,21 +32,21 @@ flags-sdl-ada:
 	@echo SYSDEPS sdl-ada-flags run create flags-sdl-ada 
 	@(cd SYSDEPS/modules/sdl-ada-flags && ./run)
 libs-sdl-ada:
-	@echo SYSDEPS sdl-ada-libs run create libs-sdl-ada 
-	@(cd SYSDEPS/modules/sdl-ada-libs && ./run)
+	@echo SYSDEPS sdl-ada-libs-S run create libs-sdl-ada 
+	@(cd SYSDEPS/modules/sdl-ada-libs-S && ./run)
 
 
 sdl-ada-flags_clean:
 	@echo SYSDEPS sdl-ada-flags clean flags-sdl-ada 
 	@(cd SYSDEPS/modules/sdl-ada-flags && ./clean)
-sdl-ada-libs_clean:
-	@echo SYSDEPS sdl-ada-libs clean libs-sdl-ada 
-	@(cd SYSDEPS/modules/sdl-ada-libs && ./clean)
+sdl-ada-libs-S_clean:
+	@echo SYSDEPS sdl-ada-libs-S clean libs-sdl-ada 
+	@(cd SYSDEPS/modules/sdl-ada-libs-S && ./clean)
 
 
 sysdeps_clean:\
 sdl-ada-flags_clean \
-sdl-ada-libs_clean \
+sdl-ada-libs-S_clean \
 
 
 # -- SYSDEPS end
