@@ -1,34 +1,34 @@
-package body SDL.image is
+package body SDL.Image is
 
-  function Load (file: string) return SDL.video.surface_access_t is
-    ch_array : aliased c.char_array := c.to_c (file);
+  function Load (File : String) return Video.Surface_Access_t is
+    Ch_Array : aliased C.char_array := C.To_C (File);
   begin
-    return Load (cs.to_chars_ptr (ch_array'unchecked_access));
+    return Load (CS.To_Chars_Ptr (Ch_Array'Unchecked_Access));
   end Load;
 
   function LoadTyped_RW
-   (src     : SDL.rwops.rwops_access_t;
-    free    : boolean;
-    typestr : string) return SDL.video.surface_access_t
+   (Source      : RWops.RWops_Access_t;
+    Free        : Boolean;
+    Type_String : String) return Video.Surface_Access_t
   is
-    ch_array : aliased c.char_array := c.to_c (typestr);
+    Ch_Array : aliased C.char_array := C.To_C (Type_String);
   begin
-    if free then
-      return LoadTyped_RW (src, 1, cs.to_chars_ptr (ch_array'unchecked_access));
+    if Free then
+      return LoadTyped_RW (Source, 1, CS.To_Chars_Ptr (Ch_Array'Unchecked_Access));
     else
-      return LoadTyped_RW (src, 0, cs.to_chars_ptr (ch_array'unchecked_access));
+      return LoadTyped_RW (Source, 0, CS.To_Chars_Ptr (Ch_Array'Unchecked_Access));
     end if;
   end LoadTyped_RW;
 
   function Load_RW
-   (src  : SDL.rwops.rwops_access_t;
-    free : boolean) return SDL.video.surface_access_t is
+   (Source : RWops.RWops_Access_t;
+    Free   : Boolean) return Video.Surface_Access_t is
   begin
-    if free then
-      return Load_RW (src, 1);
+    if Free then
+      return Load_RW (Source, 1);
     else
-      return Load_RW (src, 0);
+      return Load_RW (Source, 0);
     end if;
   end Load_RW;
 
-end SDL.image;
+end SDL.Image;
